@@ -1,0 +1,30 @@
+﻿@model Category //Not passing anything from the controller, but we will still work on the Category model
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Create Category</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>      @*Tag helper asp-for*@
+            <input asp-for="Name" class="form-control" />   @*Text box*@ 
+            <span asp-validation-for="Name" class="text-danger"></span> @*Server-side validations: Tag helper for validation the column Name. Ouput:"The Name field is required"*@
+        </div>
+        <div class="mb-3">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span> @*Server-side validations: Tag helper for validation the column DisplayOrder. Ouput:"The value " is invalid"*@
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <a asp-asp-controller="Category" asp-action="Index" class="btn btn-secondary" style="width=150px">
+            Back to List
+        </a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+    <partial name = "_ValidationScriptsPartial" />
+    } 
+}
